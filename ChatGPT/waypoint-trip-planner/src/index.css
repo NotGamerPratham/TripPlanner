@@ -1,0 +1,62 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+  color: #f6f6f3;
+  background: #080809;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; background: #080809; }
+body { margin: 0; min-width: 320px; background: radial-gradient(circle at 10% 0%, rgba(255,255,255,.08), transparent 30%), #080809; }
+button, input, select { font: inherit; }
+button { cursor: pointer; }
+button:disabled { cursor: not-allowed; opacity: .55; }
+:focus-visible { outline: 2px solid #fff; outline-offset: 3px; }
+
+@layer components {
+  .hero-shell { @apply mx-auto grid min-h-[82vh] max-w-[1500px] items-center gap-8 px-4 py-12 md:grid-cols-[1fr_.85fr] md:px-8; }
+  .hero-copy h1 { @apply mt-4 max-w-4xl text-5xl font-semibold leading-[.95] tracking-[-0.045em] sm:text-6xl lg:text-8xl; }
+  .hero-copy p { @apply mt-6 max-w-xl text-base leading-7 text-white/55 sm:text-lg; }
+  .hero-meta { @apply mt-8 flex max-w-2xl flex-wrap gap-2 text-xs uppercase tracking-[.18em] text-white/35; }
+  .hero-meta span { @apply rounded-full border border-white/10 bg-white/[.025] px-3 py-2; }
+  .hero-card { @apply relative min-h-[480px] overflow-hidden rounded-[2rem] border border-white/10 bg-white/[.035] p-7 shadow-glass backdrop-blur-2xl sm:p-10; }
+  .hero-grid { position:absolute; inset:0; opacity:.16; background-image: linear-gradient(rgba(255,255,255,.08) 1px,transparent 1px), linear-gradient(90deg,rgba(255,255,255,.08) 1px,transparent 1px); background-size: 38px 38px; mask-image: linear-gradient(to bottom, black, transparent); }
+  .orb { position:absolute; border-radius:999px; filter: blur(80px); opacity:.2; }
+  .orb-a { width:300px; height:300px; right:-80px; top:-60px; background:#fff; }
+  .orb-b { width:240px; height:240px; left:-100px; bottom:-120px; background:#888; }
+  .info-tile { @apply rounded-2xl border border-white/10 bg-black/20 p-4 leading-6; }
+  .glass-panel { @apply rounded-[1.75rem] border border-white/10 bg-white/[.035] shadow-glass backdrop-blur-2xl; }
+  .eyebrow { @apply text-[10px] font-semibold uppercase tracking-[.22em] text-white/35; }
+  .field { @apply block; }
+  .field span, .field-label { @apply mb-2 block text-xs font-medium uppercase tracking-[.14em] text-white/45; }
+  .field input, .field select { @apply w-full rounded-2xl border border-white/10 bg-black/25 px-4 py-3 text-sm text-white placeholder:text-white/25; }
+  .segmented { @apply grid grid-cols-3 gap-1 rounded-2xl border border-white/10 bg-black/25 p-1; }
+  .segmented button { @apply rounded-xl px-3 py-2 text-sm text-white/50; }
+  .segmented .active { @apply bg-white text-black; }
+  .chip-wrap { @apply flex flex-wrap gap-2; }
+  .chip { @apply rounded-full border border-white/10 bg-white/[.02] px-3 py-2 text-xs text-white/50; }
+  .chip.selected { @apply border-white/40 bg-white/10 text-white; }
+  .primary-button { @apply rounded-2xl bg-white px-5 py-3 text-sm font-semibold text-black transition hover:translate-y-[-1px] hover:bg-white/90; }
+  .secondary-button { @apply rounded-xl border border-white/10 bg-white/[.03] px-4 py-2 text-sm text-white/75 transition hover:bg-white/[.07]; }
+  .pill { @apply rounded-xl border border-white/10 bg-white/[.03] px-4 py-2 text-sm text-white/70; }
+  .day-index { @apply flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-white/10 bg-white/[.03] text-xs font-semibold; }
+  .metric { @apply text-2xl font-semibold tracking-[-.02em]; }
+  .metric-label { @apply mt-1 text-xs uppercase tracking-[.16em] text-white/35; }
+  .status-ok { @apply text-white; }
+  .status-muted { @apply text-white/35; }
+  .chat { @apply max-w-[92%] rounded-2xl border border-white/10 bg-white/[.03] px-4 py-3 text-sm leading-6 text-white/70; }
+  .chat.user { @apply ml-auto bg-white text-black; }
+}
+
+.leaflet-container { background: #111; }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { scroll-behavior: auto !important; animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+}
+
+.waypoint-pin { background: transparent; border: 0; }
+.waypoint-pin span { display:block; width:16px; height:16px; border:2px solid #080809; border-radius:999px; background:#fff; box-shadow:0 0 0 5px rgba(255,255,255,.18); }
